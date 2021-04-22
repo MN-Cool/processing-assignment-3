@@ -7,10 +7,10 @@ void draw()
 {
   textSize(24);
   textAlign(CENTER, CENTER);
-  text("Hello Michael", width/2, height/2);
+  text("Hello Captain Beefheart", width/2, height/2);
 }
 
 void hello()
 {
-  println("hello");
+  println("I may be hungry but I sure ain't weird");
 }
