@@ -7,10 +7,15 @@ void draw()
 {
   textSize(24);
   textAlign(CENTER, CENTER);
-  text("Hello Michael", width/2, height/2);
+  text("Hello Star Trek", width/2, height/2);
+}
+
+void test()
+{
+  
 }
 
 void hello()
 {
-  println("hello");
+  println("To boldly go");
 }
