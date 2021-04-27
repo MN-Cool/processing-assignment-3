@@ -34,17 +34,6 @@ void draw()
   background(0);
   float halfHeight = height / 2;
   
-  float sum = 0;
-  for (int i = 0; i < buffer.size(); i ++)
-  {
-    sum += abs(buffer.get(i));
-  }
-
-  noStroke();
-  fill(map(lerpedAverage, 0, 1, 0, 255), 255, 255);
-  float average = sum / buffer.size();
-  lerpedAverage = lerp(lerpedAverage, average, 0.1f);
-  
   if (which == 0)
   {
     strokeWeight(1);
@@ -78,6 +67,17 @@ void draw()
   {
     
   }
+  
+  float sum = 0;
+  for (int i = 0; i < buffer.size(); i ++)
+  {
+    sum += abs(buffer.get(i));
+  }
+
+  noStroke();
+  fill(map(lerpedAverage, 0, 1, 0, 255), 255, 255);
+  float average = sum / buffer.size();
+  lerpedAverage = lerp(lerpedAverage, average, 0.1f);
   
   if (which == 3)
   {
