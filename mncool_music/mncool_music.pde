@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 void setup()
 {
   size(500, 500);
@@ -5,7 +12,5 @@ void setup()
 
 void draw()
 {
-  textSize(24);
-  textAlign(CENTER, CENTER);
-  text("Hello Everybody", width/2, height/2);
+  
 }
