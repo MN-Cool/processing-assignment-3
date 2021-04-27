@@ -21,7 +21,7 @@ void setup()
   size(500, 500);
   colorMode(HSB);
   minim = new Minim(this);
-  player = minim.loadFile("");
+  player = minim.loadFile("music.mp3", width);
   buffer = player.mix;
   
   lerpedBuffer = new float[buffer.size()];
