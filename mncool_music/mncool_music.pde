@@ -37,5 +37,20 @@ void draw()
 
 void keyPressed()
 {
-  
+  if (keyCode >= '0' && keyCode <= '9')
+  {
+    which = keyCode - '0';
+  }
+  if (keyCode == ' ')
+  {
+    if ( player.isPlaying() )
+    {
+      player.pause();
+    }
+    else
+    {
+      player.rewind();
+      player.play();
+    }
+  }
 }
