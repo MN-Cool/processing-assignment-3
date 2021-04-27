@@ -47,12 +47,31 @@ void draw()
   
   if (which == 0)
   {
-    
+    strokeWeight(1);
+    for (int i = 0; i < buffer.size(); i ++)
+    {
+      float sample = buffer.get(i) * halfHeight;
+      sample = lerpedBuffer[i] * width * 2;
+      stroke(map(i, 0, buffer.size(), 0, 255), 255, 255);
+      line(i, halfHeight + sample, i, halfHeight - sample);
+      
+      lerpedBuffer[i] = lerp(lerpedBuffer[i], buffer.get(i), 0.1f);
+    }
   }
   
   if (which == 1)
   {
-    
+    strokeWeight(1);
+    for (int i = 0; i < buffer.size(); i ++)
+    {
+      float sample = buffer.get(i) * halfHeight;
+      sample = lerpedBuffer[i] * width * 2;
+      stroke(map(i, 0, buffer.size(), 0, 255), 255, 255);
+      line(i, i, halfHeight - sample, i);
+      line(i, halfHeight + sample, i, i);
+      
+      lerpedBuffer[i] = lerp(lerpedBuffer[i], buffer.get(i), 0.1f);
+    }
   }
   
   if (which == 2)
@@ -86,7 +105,16 @@ void draw()
   
   if (which == 8)
   {
-    
+    for (int i = 0; i < buffer.size(); i ++)
+    {
+      float sample = buffer.get(i) * halfHeight;
+      sample = lerpedBuffer[i] * width * 2; 
+      lerpedBuffer[i] = lerp(lerpedBuffer[i], buffer.get(i), 0.1f);
+ 
+      stroke(map(i, 0, buffer.size(), 0, 255), 255, 255);
+      line(width/2, i, width/2 - sample, i); 
+      line(i, halfHeight, i, halfHeight - sample);
+    }
   }
   
   if (which == 9)
