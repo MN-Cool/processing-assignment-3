@@ -19,7 +19,7 @@ float y = 0;
 
 void setup()
 {
-  size(500, 500);
+  size(500, 500, P3D);
   colorMode(HSB);
   minim = new Minim(this);
   player = minim.loadFile("music.mp3", width);
@@ -29,6 +29,8 @@ void setup()
 }
 
 int which = 0;
+float theta = 0;
+float speed = 0.05f;
 
 void draw()
 {
@@ -74,7 +76,7 @@ void draw()
       ellipse(i, halfHeight + sample, i, y);
     }
   }
-  
+
   float sum = 0;
   for (int i = 0; i < buffer.size(); i ++)
   {
@@ -99,7 +101,21 @@ void draw()
   
   if (which == 4)
   {
+    sum = 0;
+    for (int i = 0; i < buffer.size(); i ++)
+    {
+      sum += abs(buffer.get(i));
+    }
+    average = sum / buffer.size();
+    stroke(0, 255, 0);
+    strokeWeight(3);
+    translate(width/2, halfHeight, 0);
+    rotateX(theta);
+    rotateY(theta);
+    rotateZ(theta);
     
+    box(100 + (average * 100));
+    theta += speed;
   }
   
   if (which == 5)
