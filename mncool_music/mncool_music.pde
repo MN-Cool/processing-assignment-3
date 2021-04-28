@@ -88,7 +88,12 @@ void draw()
   
   if (which == 3)
   {
-    
+    noFill();
+    strokeWeight(2);
+    stroke(map(lerpedAverage, 0, 1, 0, 255), 255, 255);
+    ellipse(width/2, halfHeight, lerpedAverage * width * 2, lerpedAverage * width * 2);
+    rectMode(CENTER);
+    rect(width/2, halfHeight, lerpedAverage * width * 2, lerpedAverage * width * 2);
   }
   
   if (which == 4)
