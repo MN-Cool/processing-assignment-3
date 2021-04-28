@@ -15,6 +15,7 @@ float lerpedAverage = 0;
 float[] lerpedBuffer;
 
 float x = 0;
+float y = 0;
 
 void setup()
 {
@@ -65,7 +66,13 @@ void draw()
   
   if (which == 2)
   {
-    
+    for (int i = 0; i < buffer.size(); i ++)
+    {
+      float c = map(i, 0, buffer.size(), 0, 255);
+      stroke(c, 255, 255);
+      float sample = buffer.get(i) * halfHeight;
+      ellipse(i, halfHeight + sample, i, y);
+    }
   }
   
   float sum = 0;
