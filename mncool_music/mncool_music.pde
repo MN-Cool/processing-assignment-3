@@ -16,6 +16,7 @@ float[] lerpedBuffer;
 
 float x = 0;
 float y = 0;
+float z = 0;
 
 void setup()
 {
@@ -30,7 +31,8 @@ void setup()
 
 int which = 0;
 float theta = 0;
-float speed = 0.05f;
+float speed = -0.01f;
+float moveSpeed = 1;
 
 void draw()
 {
@@ -106,22 +108,66 @@ void draw()
     {
       sum += abs(buffer.get(i));
     }
-    average = sum / buffer.size();
-    stroke(0, 255, 0);
+    average = sum / (float) buffer.size();
+    lerpedAverage = lerp(lerpedAverage, average, 0.1f);
+    stroke(255, 255, 255);
     strokeWeight(3);
-    translate(width/2, halfHeight, 0);
+    noFill();
+    lights();
+    pushMatrix();
+    translate(width/4, halfHeight, 0);
     rotateX(theta);
     rotateY(theta);
     rotateZ(theta);
-    
-    box(100 + (average * 100));
+    box(100 + (lerpedAverage * 500));
+    popMatrix();
+    pushMatrix();
+    translate(width/2, height * 0.75, 0);
+    rotateX(theta);
+    rotateY(theta);
+    rotateZ(theta);
+    box(100 + (lerpedAverage * 500));
+    popMatrix();
+    pushMatrix();
+    translate(width * 0.75, halfHeight, 0);
+    rotateX(theta);
+    rotateY(theta);
+    rotateZ(theta);
+    box(100 + (lerpedAverage * 500));
+    popMatrix();
+    pushMatrix();
+    translate(width/2, height/4, 0);
+    rotateX(theta);
+    rotateY(theta);
+    rotateZ(theta);
+    box(100 + (lerpedAverage * 500));
+    popMatrix();
     theta += speed;
   }
   
   if (which == 5)
   {
-    
+    sum = 0;
+    for (int i = 0; i < buffer.size(); i ++)
+    {
+      sum += abs(buffer.get(i));
+    }
+    average = sum / (float) buffer.size();
+    lerpedAverage = lerp(lerpedAverage, average, 0.1f);
+    stroke(255, 255, 255);
+    strokeWeight(3);
+    noFill();
+    lights();
+    pushMatrix();
+    translate(width/2, halfHeight, z);
+    rotateX(theta);
+    rotateY(theta);
+    rotateZ(theta);
+    sphere(100 + (lerpedAverage * 500));
+    popMatrix();
+    z += moveSpeed;
   }
+  
   if (which == 6)
   {
     
