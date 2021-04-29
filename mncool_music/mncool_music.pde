@@ -46,8 +46,15 @@ void draw()
     {
       float sample = buffer.get(i) * halfHeight;
       sample = lerpedBuffer[i] * width * 2;
-      stroke(map(i, 0, buffer.size(), 0, 255), 255, 255);
-      line(i, halfHeight + sample, i, halfHeight - sample);
+      stroke(map(i, 0, buffer.size(), 0, 255), 0, 0);
+      textSize(34);
+      textAlign(CENTER, CENTER);
+      text("Welcome to MN Cool's music", width/2 + sample, height/4 + sample);
+      textSize(22);
+      textAlign(CENTER);
+      text("Press SPACE to play music", width/2, halfHeight);
+      text("Press 1, 2, 3, 4, 5, 6, 7, 8 and 9", width/2, height * 0.75);
+      text("for some musical art!", width/2, height * 0.80);
       
       lerpedBuffer[i] = lerp(lerpedBuffer[i], buffer.get(i), 0.1f);
     }
@@ -110,7 +117,7 @@ void draw()
     }
     average = sum / (float) buffer.size();
     lerpedAverage = lerp(lerpedAverage, average, 0.1f);
-    stroke(255, 255, 255);
+    stroke(255, 0, 255);
     strokeWeight(3);
     noFill();
     lights();
@@ -154,18 +161,23 @@ void draw()
     }
     average = sum / (float) buffer.size();
     lerpedAverage = lerp(lerpedAverage, average, 0.1f);
-    stroke(255, 255, 255);
+    pushMatrix();
+    stroke(0, 255, 255);
     strokeWeight(3);
+    camera(0, 0, 250, 0, 0, 0, 0, 1, 0);
     noFill();
     lights();
-    pushMatrix();
-    translate(width/2, halfHeight, z);
+    translate(0, 0, z);
     rotateX(theta);
     rotateY(theta);
     rotateZ(theta);
     sphere(100 + (lerpedAverage * 500));
     popMatrix();
     z += moveSpeed;
+    if(z > 100)
+    {
+      z = -200;
+    }
   }
   
   if (which == 6)
@@ -194,7 +206,16 @@ void draw()
   
   if (which == 9)
   {
-    
+    strokeWeight(1);
+    for (int i = 0; i < buffer.size(); i ++)
+    {
+      float sample = buffer.get(i) * halfHeight;
+      sample = lerpedBuffer[i] * width * 2;
+      stroke(map(i, 0, buffer.size(), 0, 255), 255, 255);
+      line(i, halfHeight + sample, i, halfHeight - sample);
+      
+      lerpedBuffer[i] = lerp(lerpedBuffer[i], buffer.get(i), 0.1f);
+    }
   }
 }
 
