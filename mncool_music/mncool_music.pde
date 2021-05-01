@@ -130,9 +130,9 @@ void draw()
     popMatrix();
     pushMatrix();
     translate(width/2, height * 0.75, 0);
-    rotateX(theta);
-    rotateY(theta);
-    rotateZ(theta);
+    rotateX(-theta);
+    rotateY(-theta);
+    rotateZ(-theta);
     box(100 + (lerpedAverage * 500));
     popMatrix();
     pushMatrix();
@@ -144,9 +144,9 @@ void draw()
     popMatrix();
     pushMatrix();
     translate(width/2, height/4, 0);
-    rotateX(theta);
-    rotateY(theta);
-    rotateZ(theta);
+    rotateX(-theta);
+    rotateY(-theta);
+    rotateZ(-theta);
     box(100 + (lerpedAverage * 500));
     popMatrix();
     theta += speed;
@@ -166,7 +166,6 @@ void draw()
     strokeWeight(3);
     camera(0, 0, 250, 0, 0, 0, 0, 1, 0);
     noFill();
-    lights();
     translate(0, 0, z);
     rotateX(theta);
     rotateY(theta);
@@ -182,7 +181,21 @@ void draw()
   
   if (which == 6)
   {
-    
+    for (int i = 0; i < buffer.size(); i ++)
+    {
+      float c = map(i, 0, buffer.size(), 0, 255);
+      stroke(c, 155, 155);
+      pushMatrix();
+      noFill();
+      translate(width/2, halfHeight, z);
+      box(100 + (lerpedAverage * 500));
+      popMatrix();
+      z += moveSpeed;
+      if(z > 100)
+      {
+        z = -200;
+      }
+    }
   }
   
   if (which == 7)
