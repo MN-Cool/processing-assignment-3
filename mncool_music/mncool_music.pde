@@ -200,7 +200,10 @@ void draw()
   
   if (which == 7)
   {
-    
+    for (int i = 0; i < buffer.size(); i ++)
+    {
+      
+    }
   }
   
   if (which == 8)
