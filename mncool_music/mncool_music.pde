@@ -202,7 +202,13 @@ void draw()
   {
     for (int i = 0; i < buffer.size(); i ++)
     {
-      
+      float sample = buffer.get(i) * halfHeight;
+      sample = lerpedBuffer[i] * width * 2; 
+      lerpedBuffer[i] = lerp(lerpedBuffer[i], buffer.get(i), 0.1f);
+ 
+      stroke(map(i, 0, buffer.size(), 0, 255), 255, 255);
+      line(width/2, i, width/2 - sample, i); 
+      line(i, halfHeight, i, halfHeight - sample);
     }
   }
   
@@ -215,8 +221,12 @@ void draw()
       lerpedBuffer[i] = lerp(lerpedBuffer[i], buffer.get(i), 0.1f);
  
       stroke(map(i, 0, buffer.size(), 0, 255), 255, 255);
-      line(width/2, i, width/2 - sample, i); 
+      line(width * 0.75, i, width * 0.75 + sample, i);
+      line(width/2, i, width/2 + sample, i);
+      line(width/4, i, width/4 + sample, i);
       line(i, halfHeight, i, halfHeight - sample);
+      line(i, height/4, i, height/4 - sample);
+      line(i, height * 0.75, i, (height * 0.75) - sample);
     }
   }
   
