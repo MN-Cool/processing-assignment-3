@@ -18,6 +18,8 @@ float x = 0;
 float y = 0;
 float z = 0;
 
+MouseIcon mi;
+
 void setup()
 {
   size(500, 500, P3D);
@@ -27,6 +29,8 @@ void setup()
   buffer = player.mix;
   
   lerpedBuffer = new float[buffer.size()];
+  
+  mi = new MouseIcon();
 }
 
 int which = 0;
