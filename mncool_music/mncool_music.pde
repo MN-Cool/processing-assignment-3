@@ -270,8 +270,3 @@ void keyPressed()
     }
   }
 }
-
-void mouseClicked()
-{
-  
-}

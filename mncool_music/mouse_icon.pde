@@ -17,9 +17,11 @@ class MouseIcon
   
   void render()
   {
-    noCursor();
-    stroke(255, 255, 255);
-    noFill();
-    ellipse(5, 5, miX, miY);
+    cursor(HAND);
+  }
+  
+  void mouseClicked()
+  {
+    
   }
 }
