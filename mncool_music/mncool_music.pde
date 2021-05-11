@@ -43,6 +43,8 @@ void draw()
   background(0);
   float halfHeight = height / 2;
   
+  mi.render();
+  
   if (which == 0)
   {
     strokeWeight(1);
