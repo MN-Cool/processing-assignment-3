@@ -4,6 +4,8 @@ class MouseIcon
   {
     miX = mouseX;
     miY = mouseY;
+    
+    img = LoadImage("");
   }
   
   MouseIcon(float miX, float miY)
@@ -14,14 +16,10 @@ class MouseIcon
   
   float miX;
   float miY;
+  PImage img;
   
   void render()
   {
-    cursor(HAND);
-  }
-  
-  void mouseClicked()
-  {
-    
+    cursor(img, miX, miY);
   }
 }
