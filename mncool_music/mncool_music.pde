@@ -269,7 +269,7 @@ void keyPressed()
       player.play();
     }
   }
-  if (keyCode == '')
+  if (keyCode == "")
   {
     
   }
