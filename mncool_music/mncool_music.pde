@@ -59,6 +59,7 @@ void draw()
       textSize(22);
       textAlign(CENTER);
       text("Press SPACE to play music", width/2, halfHeight);
+      text("Press P to see message", width/2, height * 0.625);
       text("Press 1, 2, 3, 4, 5, 6, 7, 8 and 9", width/2, height * 0.75);
       text("for some musical art!", width/2, height * 0.80);
       
@@ -269,8 +270,8 @@ void keyPressed()
       player.play();
     }
   }
-  if (keyCode == "")
+  if (keyCode == 'P')
   {
-    
+    background(255);
   }
 }
