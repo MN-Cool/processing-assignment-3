@@ -2,21 +2,18 @@ class MouseIcon
 {
   MouseIcon()
   {
-    miX = mouseX;
-    miY = mouseY;
+    img = loadImage("music.png");
   }
   
-  MouseIcon(float miX, float miY)
+  MouseIcon(PImage img)
   {
-    this.miX = miX;
-    this.miY = miY;
+    this.img = img;
   }
   
-  float miX;
-  float miY;
+  PImage img;
   
   void render()
   {
-    
+    cursor(img);
   }
 }
