@@ -273,6 +273,9 @@ void keyPressed()
   if (keyCode == 'P')
   {
     background(255);
+    stroke(0);
+    textSize(34);
+    textAlign(CENTER, CENTER);
     text("Have a listen to this calming music!", width/2, height/2);
   }
 }
