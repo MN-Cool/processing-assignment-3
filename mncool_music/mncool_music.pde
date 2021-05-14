@@ -59,7 +59,7 @@ void draw()
       textSize(22);
       textAlign(CENTER);
       text("Press SPACE to play music", width/2, halfHeight);
-      text("Press P to see message", width/2, height * 0.625);
+      text("Press P to see quick message", width/2, height * 0.625);
       text("Press 1, 2, 3, 4, 5, 6, 7, 8 and 9", width/2, height * 0.75);
       text("for some musical art!", width/2, height * 0.80);
       
@@ -276,6 +276,7 @@ void keyPressed()
     stroke(0);
     textSize(34);
     textAlign(CENTER, CENTER);
-    text("Have a listen to this calming music!", width/2, height/2);
+    text("Have a listen to this calming music.", width/2, height/2);
+    text("It will help you relax and meditate, when you are stressed.", width/2, height * 0.625);
   }
 }
