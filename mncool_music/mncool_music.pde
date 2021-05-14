@@ -274,7 +274,7 @@ void keyPressed()
   {
     background(255);
     stroke(0);
-    textSize(34);
+    textSize(14);
     textAlign(CENTER, CENTER);
     text("Have a listen to this calming music.", width/2, height/2);
     text("It will help you relax and meditate, when you are stressed.", width/2, height * 0.625);
